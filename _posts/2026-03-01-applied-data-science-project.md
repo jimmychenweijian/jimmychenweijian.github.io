@@ -1,6 +1,6 @@
 ---
 layout: post
-author: Name
+author: Chen Weijian Jimmy  
 title: "Applied Data Science Project Documentation"
 categories: ITD214
 ---
