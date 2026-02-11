@@ -103,7 +103,7 @@ Models are evaluated using:
 
 The performance of Logistic Regression and Naive Bayes is compared to determine which model performs better.
 
-6. Expected Outcome
+### 6. Expected Outcome
 
 This project is expected to:
 
