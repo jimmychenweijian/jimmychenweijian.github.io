@@ -62,7 +62,7 @@ To achieve the objective, the project is carried out in several structured steps
 - Understand key variables (Score, Text, ProductID, etc.)
 - Check dataset size and data quality
 
-#### Step 2: Data Preprocessing
+#### Step 2: Data Preprocessing (Data Cleaning & Transformation)
 
 - Clean and prepare textual data
 - Convert rating scores into sentiment labels
@@ -226,7 +226,7 @@ This reduces noise and ensures only relevant features are retained for modelling
 
 <img width="395" height="94" alt="image" src="https://github.com/user-attachments/assets/96f0a34f-f966-4850-bdaa-9596a164a722" />
 
-### Step 3: Exploratory Data Analysis (EDA)
+#### #step-3-exploratory-data-analysis-eda
 
 #### 1. Rating Distribution (1–5)
 
