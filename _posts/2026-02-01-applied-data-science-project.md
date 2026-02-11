@@ -5,7 +5,7 @@ title: "Applied Data Science Project Documentation"
 categories: ITD214
 ---
 ## Project Background
-##1. Business Background
+## 1. Business Background
 
 Amazon is one of the largest e-commerce platforms and it collects a huge amount of customer review data every day. These reviews contain both structured information (such as rating score from 1 to 5) and unstructured information (text feedback written by customers).
 
