@@ -345,7 +345,37 @@ Custom stopwords were applied during the word filtering stage together with punc
 
 #### 4.4 TF-IDF Feature Extraction
 
-To transform cleaned tokens into numerical features suitable for machine learning
+After cleaning and tokenising the text, each review is stored as a list of processed words in the text_tokens column. However, machine learning models cannot directly understand text. Therefore, we need to convert the cleaned tokens into numerical features.
+
+In this step, TF-IDF (Term Frequency – Inverse Document Frequency) is applied to transform text into a weighted numerical representation. TF-IDF assigns higher weights to words that are important within a review, while reducing the weight of very common words that appear in many reviews and do not provide strong distinguishing power.
+
+##### 4.4.1 Building the Dictionary and Corpus
+First, a dictionary is created from all cleaned tokens. This dictionary maps each unique word to an integer ID.
+
+To prevent memory issues and reduce noise (COLAB crashed when using full list), extreme words are filtered:
+
+- Words appearing in fewer than 5 documents are removed (too rare).
+- Words appearing in more than 80% of documents are removed (too common).
+This helps reduce the vocabulary size and improves computational efficiency. From the output, the vocabulary size was reduced to 27,048 words, which is more manageable for modelling.
+
+<img width="352" height="200" alt="image" src="https://github.com/user-attachments/assets/25022141-3939-474d-87c0-15e41dd8538a" />
+
+##### 4.4.2 Training the TF-IDF Model
+
+Next, the TF-IDF model is trained using the Bag-of-Words corpus. Each review is converted into a TF-IDF weighted vector.
+
+The sparse matrix representation is used to avoid storing a large dense matrix in memory.
+
+This means:
+- 567,145 reviews (rows)
+- 27,048 unique vocabulary terms (columns)
+
+Each cell in the matrix represents the TF-IDF weight of a word in a particular review.
+
+<img width="810" height="129" alt="image" src="https://github.com/user-attachments/assets/1d4b28a7-55dc-45eb-8c45-f473faec4632" />
+
+
+
 
 
 ### Modelling
