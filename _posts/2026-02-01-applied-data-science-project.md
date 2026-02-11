@@ -69,7 +69,7 @@ To achieve the objective, the project is carried out in several structured steps
 - Handle missing values
 - Apply tokenisation and stopword removal
 
-#### Step 3: Exploratory Data Analysis (EDA)
+[Step 3: Exploratory Data Analysis (EDA)](#step-3-exploratory-data-analysis-eda)
 
 - Visualise rating distribution (1–5)
 - Analyse sentiment distribution
@@ -226,7 +226,7 @@ This reduces noise and ensures only relevant features are retained for modelling
 
 <img width="395" height="94" alt="image" src="https://github.com/user-attachments/assets/96f0a34f-f966-4850-bdaa-9596a164a722" />
 
-#### #step-3-exploratory-data-analysis-eda
+#### Step 3: Exploratory Data Analysis (EDA)
 
 #### 1. Rating Distribution (1–5)
 
