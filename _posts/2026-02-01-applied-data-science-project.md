@@ -296,6 +296,24 @@ This reduces noise and ensures only relevant features are retained for modelling
 
 <img width="395" height="94" alt="image" src="https://github.com/user-attachments/assets/96f0a34f-f966-4850-bdaa-9596a164a722" />
 
+#### 5.Text Preprocessing for Feature Engineering
+
+The following preprocessing steps are applied to each review:
+
+- Convert text to lowercase
+- Remove punctuation and numbers
+- Tokenize text into individual words
+- Remove standard English stopwords
+- Remove custom domain-specific stopwords (e.g. platform-specific or low-sentiment words)
+- Apply stemming to reduce vocabulary size
+This step standardises all customer reviews into a clean and consistent token format that can be used for TF-IDF feature extraction and downstream machine learning models.
+Earlier tokenization and stopword removal steps were performed for exploratory analysis only.
+Here, preprocessing is consolidated into a single pipeline to avoid duplication and ensure consistency.
+
+<img width="526" height="280" alt="image" src="https://github.com/user-attachments/assets/d2906dc9-0ef3-43ad-8620-0ac72c515f5a" />
+
+
+
 ### Modelling
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.
 
