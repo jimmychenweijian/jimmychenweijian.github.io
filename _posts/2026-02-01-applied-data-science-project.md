@@ -13,6 +13,20 @@ Although rating scores can show whether customers are generally satisfied or not
 
 Therefore, this project aims to use data analytics and text mining techniques to better understand customer satisfaction patterns from Amazon reviews.
 
+## 2. Business Problem Statement
+
+Amazon needs to better leverage its customer review data to answer important business questions, such as:
+
+- What is the overall level of customer satisfaction?
+
+- Are most customers satisfied or dissatisfied?
+
+- What kind of feedback is commonly given in positive vs negative reviews?
+
+- How can review data help improve decision-making?
+
+Without systematic analysis, the business may overlook important dissatisfaction signals or fail to identify improvement opportunities. This may affect customer experience and long-term revenue performance.
+
 ## Work Accomplished
 Document your work done to accomplish the outcome
 
