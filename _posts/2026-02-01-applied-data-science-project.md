@@ -18,13 +18,9 @@ Therefore, this project aims to use data analytics and text mining techniques to
 Amazon needs to better leverage its customer review data to answer important business questions, such as:
 
 - What is the overall level of customer satisfaction?
-
 - Are most customers satisfied or dissatisfied?
-
 - What kind of feedback is commonly given in positive vs negative reviews?
-
 - How can review data help improve decision-making?
-
 - How much the customers’ (segments) are spending?
 
 Without systematic analysis, the business may overlook important dissatisfaction signals or fail to identify improvement opportunities. This may affect customer experience and long-term revenue performance.
@@ -46,9 +42,7 @@ For my individual component, I focus on:
 In this project, customer sentiment is derived directly from rating scores:
 
 - Ratings 4–5 → Positive
-
 - Rating 3 → Neutral
-
 - Ratings 1–2 → Negative
 
 This approach is practical because rating scores serve as a direct proxy for customer satisfaction.
@@ -56,12 +50,70 @@ This approach is practical because rating scores serve as a direct proxy for cus
 The analysis will:
 
 - Examine the distribution of ratings
-
 - Categorise reviews into sentiment classes
-
 - Identify whether the dataset is imbalanced
-
 - Provide insights into overall satisfaction levels
+
+### 5. Project Plan
+
+To achieve the objective, the project is carried out in several structured steps:
+
+#### Step 1: Dataset Understanding
+
+- Load and explore the Amazon review dataset
+
+- Understand key variables (Score, Text, ProductID, etc.)
+
+- Check dataset size and data quality
+
+#### Step 2: Data Preprocessing
+
+- Clean and prepare textual data
+- Convert rating scores into sentiment labels
+- Handle missing values
+- Apply tokenisation and stopword removal
+
+#### Step 3: Exploratory Data Analysis (EDA)
+
+- Visualise rating distribution (1–5)
+- Analyse sentiment distribution
+- Identify class imbalance
+- Generate summary statistics
+
+#### Step 4: Text Analytics
+
+- Apply TF-IDF feature extraction
+- Identify common keywords in positive and negative reviews
+- Interpret word patterns
+
+#### Step 5: Model Development (Evaluation Purpose)
+
+Although sentiment is directly derived from rating scores, classification models such as:
+- Logistic Regression
+- Naive Bayes
+are implemented to evaluate whether textual features align with rating-based sentiment.
+
+#### Step 6: Model Assessment
+
+Models are evaluated using:
+
+- Accuracy
+- Precision
+- Recall
+- F1-score
+- Confusion Matrix
+
+The performance of Logistic Regression and Naive Bayes is compared to determine which model performs better.
+
+6. Expected Outcome
+
+This project is expected to:
+
+- Provide a clear view of overall customer satisfaction levels
+- Identify patterns in review sentiments
+- Demonstrate how text analytics can support business understanding
+
+Support data-driven decision making
 
 ## Work Accomplished
 Document your work done to accomplish the outcome
