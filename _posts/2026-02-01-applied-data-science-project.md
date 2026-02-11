@@ -406,7 +406,8 @@ This ensures that:
 
 - Feature Engineering: TF-IDF sparse matrix
 - Classifier: Logistic Regression
-- class_weight="balanced" to handle class imbalance <img width="349" height="442" alt="image" src="https://github.com/user-attachments/assets/1df2c235-088b-48bb-8d7c-b6189396ca5f" />
+- class_weight="balanced" to handle class imbalance
+<img width="349" height="442" alt="image" src="https://github.com/user-attachments/assets/1df2c235-088b-48bb-8d7c-b6189396ca5f" />
 
 
 ##### Model 2: TF-IDF + Multinomial Naive Bayes
@@ -414,6 +415,8 @@ This ensures that:
 - Feature Engineering: TF-IDF sparse matrix
 - Same train/test split
 - Classifier: MultinomialNB
+<img width="370" height="388" alt="image" src="https://github.com/user-attachments/assets/24d5149c-8f3b-4af4-a196-806263d62284" />
+
 
 ##### Model 3: CountVectorizer + Multinomial Naive Bayes
 
@@ -422,6 +425,7 @@ This ensures that:
 - Unigrams + Bigrams (ngram_range=(1,2))
 - min_df=5 to remove rare words
 - max_features=30000 to limit vocabulary size
+<img width="417" height="502" alt="image" src="https://github.com/user-attachments/assets/b9dc39bd-cc7e-461e-9b24-8f3a7440d4db" />
 
 We selected three models to systematically compare the impact of different classifiers and feature engineering techniques on sentiment classification performance. Logistic Regression with TF-IDF was chosen as a strong baseline model due to its effectiveness with sparse high-dimensional text data. Naive Bayes was tested with both TF-IDF and CountVectorizer to evaluate whether the classifier performs better with weighted term frequency or raw word counts. This structured comparison allows us to identify which model provides the most balanced and reliable performance across all sentiment classes, rather than focusing only on overall accuracy.
 
