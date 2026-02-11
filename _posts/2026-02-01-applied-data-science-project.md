@@ -77,7 +77,7 @@ To achieve the objective, the project is carried out in several structured steps
 - Handle missing values
 - Apply tokenisation and stopword removal
   
-#### Step 4: Text Analytics
+[Step 4: Text Analytics](#step-4-text-analytics)
 
 - Identify common keywords in positive and negative reviews
 - Interpret word patterns
