@@ -75,6 +75,7 @@ To achieve the objective, the project is carried out in several structured steps
 - Analyse sentiment distribution
 - Identify class imbalance
 - Generate summary statistics
+- Exploratory Tokenization (Understanding Text Structure)
 
 #### Step 4: Text Analytics
 
