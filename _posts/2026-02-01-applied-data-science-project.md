@@ -79,10 +79,10 @@ To achieve the objective, the project is carried out in several structured steps
   
 #### Step 4: Text Analytics
 
-- Apply TF-IDF feature extraction
 - Identify common keywords in positive and negative reviews
 - Interpret word patterns
 - Visualising using word cloud
+- Apply TF-IDF feature extraction
 
 #### Step 5: Model Development (Evaluation Purpose)
 
@@ -312,6 +312,40 @@ Here, preprocessing is consolidated into a single pipeline to avoid duplication 
 
 <img width="526" height="280" alt="image" src="https://github.com/user-attachments/assets/d2906dc9-0ef3-43ad-8620-0ac72c515f5a" />
 
+#### Step 4: Text Analytics
+This section performs feature engineering and sentiment-oriented text exploration using cleaned review text. The objective is to extract meaningful word patterns and convert text into structured numerical features for modelling.
+
+##### 4.1 Word Frequency Analysis (Exploratory – Before Cleaning)
+
+Purpose: To understand raw vocabulary distribution and identify noise (e.g., stopwords).
+
+- FreqDist(word_list)
+- Plot frequency curve
+The most frequent terms include “in”, “that”, and “with”, which are stopwords and do not contribute meaningful sentiment information. This confirms the necessity of further preprocessing.
+
+<img width="945" height="55" alt="image" src="https://github.com/user-attachments/assets/a6509dbc-32d7-44a4-b0a0-6b7eb7539712" />
+
+<img width="1010" height="491" alt="image" src="https://github.com/user-attachments/assets/225144f4-1b58-4dd9-b013-16949ca770c3" />
+
+#### 4.2 Common Keywords in Positive vs Negative Reviews
+
+To compare word patterns between sentiment classes.
+
+Common words (e.g. “taste”, “product”) appear in both clouds, their context differs, showing that the same aspects can contribute to either positive or negative sentiment depending on customer experience.
+
+<img width="591" height="151" alt="image" src="https://github.com/user-attachments/assets/c8cfb8fe-076a-47a3-8602-e811fd509cec" />
+
+#### 4.3 Cleaned Word Frequency & Word Cloud (After Preprocessing)
+
+To identify meaningful high-frequency sentiment words after stopword removal and stemming.
+
+Custom stopwords were applied during the word filtering stage together with punctuation and number removal. This ensured that common and domain-specific words such as “br” and “amazon” were excluded before generating the frequency distribution and WordCloud.
+
+<img width="944" height="504" alt="image" src="https://github.com/user-attachments/assets/d53bea92-db6c-4295-a510-10504cc840b0" />
+
+#### 4.4 TF-IDF Feature Extraction
+
+To transform cleaned tokens into numerical features suitable for machine learning
 
 
 ### Modelling
