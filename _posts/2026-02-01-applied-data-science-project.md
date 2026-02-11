@@ -185,6 +185,62 @@ We identified:
   
 <img width="917" height="112" alt="image" src="https://github.com/user-attachments/assets/8bab9fc7-a53b-41dc-a69e-4c99918e60ac" />
 
+### Step 2: Data Preprocessing (Data Cleaning & Transformation)
+
+To ensure high-quality data for modelling, the following preprocessing steps were performed:
+
+#### 1. Remove Duplicate Reviews
+
+Duplicates were removed using:
+
+review.drop_duplicates(subset=["ProductId", "UserId", "Text"])
+
+- Removed duplicates: 1,309
+- Final dataset size: 567,145 rows
+This ensures that repeated opinions do not bias the sentiment model.
+
+<img width="267" height="234" alt="image" src="https://github.com/user-attachments/assets/5eebebef-e3dc-43b1-9033-e580b141dfed" />
+
+#### 2. Convert Rating Score to Sentiment Label
+
+We transformed Score into categorical sentiment:
+
+- Score ≥ 4 → Positive
+- Score = 3 → Neutral
+- Score ≤ 2 → Negative
+This transformation aligns numeric rating with sentiment categories, making it suitable for classification modelling.
+
+<img width="836" height="106" alt="image" src="https://github.com/user-attachments/assets/bcb475b9-7a18-4886-adb1-20ee2eb21500" />
+
+#### 3. Lowercase Text Standardisation
+
+All review text was converted to lowercase:
+
+review["Text"] = review["Text"].str.lower()
+
+This ensures consistency and prevents the same word (e.g., "Good" vs "good") from being treated as different tokens during feature extraction.
+
+#### 4. Remove Non-Sentiment Related Features
+
+Columns removed:
+
+- Id
+- UserId
+- ProfileName
+- HelpfulnessNumerator
+- HelpfulnessDenominator
+- Time
+
+Remaining columns:
+- ProductId
+- Score
+- Summary
+- Text
+- Sentiment
+- review_length
+This reduces noise and ensures only relevant features are retained for modelling.
+
+<img width="395" height="94" alt="image" src="https://github.com/user-attachments/assets/96f0a34f-f966-4850-bdaa-9596a164a722" />
 
 ### Modelling
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.
