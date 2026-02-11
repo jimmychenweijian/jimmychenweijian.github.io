@@ -111,9 +111,9 @@ Support data-driven decision making
 
 ## Work Accomplished
 
-### Step 1: Dataset Understanding & Selection
+#### Step 1: Dataset Understanding & Selection
 
-#### 1.1 Dataset Overview
+##### 1.1 Dataset Overview
 
 The dataset used in this project consists of Amazon customer reviews collected from a public source. It contains textual review content together with rating information, which allows us to analyse customer sentiment.
 
@@ -124,7 +124,7 @@ This large dataset size provides sufficient coverage to analyse overall sentimen
 
 <img width="763" height="113" alt="image" src="https://github.com/user-attachments/assets/c3fdd096-276b-4eda-9fa4-761f7a93004b" />
 
-#### 1.2 Key Variables
+##### 1.2 Key Variables
 
 The dataset includes the following important variables:
 - Score – Rating from 1 to 5
@@ -142,7 +142,7 @@ Columns such as Id, UserId, ProfileName, HelpfulnessNumerator, HelpfulnessDenomi
 
 <img width="334" height="34" alt="image" src="https://github.com/user-attachments/assets/5573997f-cd8c-4ea0-87c4-a0cef20bdf59" />
 
-#### 1.3 Data Types and Structure
+##### 1.3 Data Types and Structure
 
 Using review.info():
 - 5 numeric columns (int64)
@@ -152,7 +152,7 @@ The dataset structure is clean and well-defined, suitable for text analysis.
 
 <img width="242" height="154" alt="image" src="https://github.com/user-attachments/assets/7868e286-3a35-4cd9-9a7c-769b28ceb415" />
 
-#### 1.4 Missing Values
+##### 1.4 Missing Values
 
 From the missing value check:
 - Summary: 27 missing
@@ -162,7 +162,7 @@ Since the number of missing values is very small relative to 568k rows, they do 
 
 <img width="141" height="199" alt="image" src="https://github.com/user-attachments/assets/0f103e85-4d4f-4e69-8223-68ceb5adc072" />
 
-#### 1.5 Duplicate Review Analysis
+##### 1.5 Duplicate Review Analysis
 
 Using duplicate check on:
 subset = ["ProductId", "UserId", "Text"]
@@ -177,7 +177,7 @@ We identified:
 
 #### Step 2: Exploratory Data Analysis (EDA)
 
-#### 2.1 Rating Distribution (1–5)
+##### 2.1 Rating Distribution (1–5)
 
 From value_counts:
 - Score 5: ~63.9%
@@ -189,7 +189,7 @@ This shows a strong skew towards higher ratings.
 
 <img width="106" height="139" alt="image" src="https://github.com/user-attachments/assets/936d8208-f2e3-4288-89e3-f1b134dbd7e9" />
 
-#### 2.2 Sentiment Distribution
+##### 2.2 Sentiment Distribution
 
 After converting to sentiment:
 - Positive: ~78%
@@ -202,7 +202,7 @@ The model may become biased towards predicting positive sentiment due to majorit
 
 <img width="358" height="303" alt="image" src="https://github.com/user-attachments/assets/29712ca6-0197-4c50-8059-d7823b5fd205" />
 
-#### 2.3 Review Length Analysis
+##### 2.3 Review Length Analysis
 
 We created a new feature:
 
@@ -222,7 +222,7 @@ This shows that:
  <img width="601" height="455" alt="image" src="https://github.com/user-attachments/assets/f087b2e6-10ef-4d27-b2e4-f304b8cbb3c2" />
 
 
-#### 2.4 Review Length by Sentiment
+##### 2.4 Review Length by Sentiment
 
 From boxplot:
 
@@ -232,7 +232,7 @@ From boxplot:
 
 <img width="596" height="445" alt="image" src="https://github.com/user-attachments/assets/826f868c-a96e-4159-bea3-911b0c8b53a7" />
 
-#### 2.5 Top Reviewed Products
+##### 2.5 Top Reviewed Products
 
 The top 10 products have significantly higher review counts than others.
 
@@ -242,11 +242,11 @@ This indicates:
 
 <img width="571" height="538" alt="image" src="https://github.com/user-attachments/assets/74867662-7c5d-4b72-aeef-b471c3d64e2c" />
 
-### Step 3: Data Preprocessing (Data Cleaning & Transformation)
+#### Step 3: Data Preprocessing (Data Cleaning & Transformation)
 
 To ensure high-quality data for modelling, the following preprocessing steps were performed:
 
-#### 3.1 Remove Duplicate Reviews
+##### 3.1 Remove Duplicate Reviews
 
 Duplicates were removed using:
 
@@ -257,7 +257,7 @@ This ensures that repeated opinions do not bias the sentiment model.
 
 <img width="267" height="234" alt="image" src="https://github.com/user-attachments/assets/5eebebef-e3dc-43b1-9033-e580b141dfed" />
 
-#### 3.2 Convert Rating Score to Sentiment Label
+##### 3.2 Convert Rating Score to Sentiment Label
 
 We transformed Score into categorical sentiment:
 - Score ≥ 4 → Positive
@@ -267,7 +267,7 @@ This transformation aligns numeric rating with sentiment categories, making it s
 
 <img width="836" height="106" alt="image" src="https://github.com/user-attachments/assets/bcb475b9-7a18-4886-adb1-20ee2eb21500" />
 
-#### 3.3 Lowercase Text Standardisation
+##### 3.3 Lowercase Text Standardisation
 
 All review text was converted to lowercase:
 
@@ -275,9 +275,9 @@ review["Text"] = review["Text"].str.lower()
 
 This ensures consistency and prevents the same word (e.g., "Good" vs "good") from being treated as different tokens during feature extraction.
 
-#### 3.4 Remove Non-Sentiment Related Features
+##### 3.4 Remove Non-Sentiment Related Features
 
-##### Columns removed:
+###### Columns removed:
 - Id
 - UserId
 - ProfileName
@@ -285,7 +285,7 @@ This ensures consistency and prevents the same word (e.g., "Good" vs "good") fro
 - HelpfulnessDenominator
 - Time
 
-##### Remaining columns:
+###### Remaining columns:
 - ProductId
 - Score
 - Summary
@@ -296,7 +296,7 @@ This reduces noise and ensures only relevant features are retained for modelling
 
 <img width="395" height="94" alt="image" src="https://github.com/user-attachments/assets/96f0a34f-f966-4850-bdaa-9596a164a722" />
 
-#### 3.5 Text Preprocessing for Feature Engineering
+##### 3.5 Text Preprocessing for Feature Engineering
 
 The following preprocessing steps are applied to each review:
 
@@ -327,7 +327,7 @@ The most frequent terms include “in”, “that”, and “with”, which are 
 
 <img width="1010" height="491" alt="image" src="https://github.com/user-attachments/assets/225144f4-1b58-4dd9-b013-16949ca770c3" />
 
-#### 4.2 Common Keywords in Positive vs Negative Reviews
+##### 4.2 Common Keywords in Positive vs Negative Reviews
 
 To compare word patterns between sentiment classes.
 
@@ -335,7 +335,7 @@ Common words (e.g. “taste”, “product”) appear in both clouds, their cont
 
 <img width="591" height="151" alt="image" src="https://github.com/user-attachments/assets/c8cfb8fe-076a-47a3-8602-e811fd509cec" />
 
-#### 4.3 Cleaned Word Frequency & Word Cloud (After Preprocessing)
+##### 4.3 Cleaned Word Frequency & Word Cloud (After Preprocessing)
 
 To identify meaningful high-frequency sentiment words after stopword removal and stemming.
 
@@ -343,13 +343,13 @@ Custom stopwords were applied during the word filtering stage together with punc
 
 <img width="944" height="504" alt="image" src="https://github.com/user-attachments/assets/d53bea92-db6c-4295-a510-10504cc840b0" />
 
-#### 4.4 TF-IDF Feature Extraction
+##### 4.4 TF-IDF Feature Extraction
 
 After cleaning and tokenising the text, each review is stored as a list of processed words in the text_tokens column. However, machine learning models cannot directly understand text. Therefore, we need to convert the cleaned tokens into numerical features.
 
 In this step, TF-IDF (Term Frequency – Inverse Document Frequency) is applied to transform text into a weighted numerical representation. TF-IDF assigns higher weights to words that are important within a review, while reducing the weight of very common words that appear in many reviews and do not provide strong distinguishing power.
 
-##### 4.4.1 Building the Dictionary and Corpus
+###### 4.4.1 Building the Dictionary and Corpus
 First, a dictionary is created from all cleaned tokens. This dictionary maps each unique word to an integer ID.
 
 To prevent memory issues and reduce noise (COLAB crashed when using full list), extreme words are filtered:
@@ -360,7 +360,7 @@ This helps reduce the vocabulary size and improves computational efficiency. Fro
 
 <img width="352" height="200" alt="image" src="https://github.com/user-attachments/assets/25022141-3939-474d-87c0-15e41dd8538a" />
 
-##### 4.4.2 Training the TF-IDF Model
+###### 4.4.2 Training the TF-IDF Model
 
 Next, the TF-IDF model is trained using the Bag-of-Words corpus. Each review is converted into a TF-IDF weighted vector.
 
