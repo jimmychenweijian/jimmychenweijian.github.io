@@ -56,7 +56,7 @@ The analysis will:
 To achieve the objective, the project is carried out in several structured steps:
 
 
-[Dataset Understanding & Selection](#step-1-dataset-understanding--selection)
+[#### Step 1: Dataset Understanding & Selection](#step-1-dataset-understanding--selection)
 
 - Load and explore the Amazon review dataset
 - Understand key variables (Score, Text, ProductID, etc.)
