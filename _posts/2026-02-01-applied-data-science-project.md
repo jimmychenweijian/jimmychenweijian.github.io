@@ -29,9 +29,9 @@ Without systematic analysis, the business may overlook important dissatisfaction
 
 ## 3. Business Goal
 
-*The main goal of this project is:*
+The main goal of this project is:
 
-To understand the overall customer satisfaction level on Amazon by analysing the distribution of review ratings and examining textual feedback.
+*To understand the overall customer satisfaction level on Amazon by analysing the distribution of review ratings and examining textual feedback.*
 
 By doing so, the business can obtain a clearer picture of how customers perceive products sold on the platform.
 
