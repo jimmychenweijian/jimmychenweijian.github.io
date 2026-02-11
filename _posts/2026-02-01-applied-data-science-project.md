@@ -5,7 +5,7 @@ title: "Applied Data Science Project Documentation"
 categories: ITD214
 ---
 ## Project Background
-## 1. Business Background
+### 1. Business Background
 
 Amazon is one of the largest e-commerce platforms and it collects a huge amount of customer review data every day. These reviews contain both structured information (such as rating score from 1 to 5) and unstructured information (text feedback written by customers).
 
@@ -13,7 +13,7 @@ Although rating scores can show whether customers are generally satisfied or not
 
 Therefore, this project aims to use data analytics and text mining techniques to better understand customer satisfaction patterns from Amazon reviews.
 
-## 2. Business Problem Statement
+### 2. Business Problem Statement
 
 Amazon needs to better leverage its customer review data to answer important business questions, such as:
 
@@ -29,7 +29,7 @@ Amazon needs to better leverage its customer review data to answer important bus
 
 Without systematic analysis, the business may overlook important dissatisfaction signals or fail to identify improvement opportunities. This may affect customer experience and long-term revenue performance.
 
-## 3. Business Goal
+### 3. Business Goal
 
 The main goal of this project is:
 
@@ -37,11 +37,11 @@ The main goal of this project is:
 
 By doing so, the business can obtain a clearer picture of how customers perceive products sold on the platform.
 
-## 4. Individual Objective (Objective 2 – Overall Customer Satisfaction Distribution)
+### 4. Individual Objective (Objective 2 – Overall Customer Satisfaction Distribution)
 
 For my individual component, I focus on:
 
-## Objective 2 – To analyse the overall sentiment distribution of Amazon customer reviews.
+#### Objective 2 – To analyse the overall sentiment distribution of Amazon customer reviews.
 
 In this project, customer sentiment is derived directly from rating scores:
 
