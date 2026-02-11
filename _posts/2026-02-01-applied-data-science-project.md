@@ -62,7 +62,7 @@ To achieve the objective, the project is carried out in several structured steps
 - Understand key variables (Score, Text, ProductID, etc.)
 - Check dataset size and data quality
 
-#### Step 2: Data Preprocessing (Data Cleaning & Transformation)
+[Step 2: Data Preprocessing (Data Cleaning & Transformation)](#step-2-data-preprocessing-data-cleaning--transformation)
 
 - Clean and prepare textual data
 - Convert rating scores into sentiment labels
