@@ -81,6 +81,7 @@ To achieve the objective, the project is carried out in several structured steps
 - Apply TF-IDF feature extraction
 - Identify common keywords in positive and negative reviews
 - Interpret word patterns
+- Visualising using word cloud
 
 #### Step 5: Model Development (Evaluation Purpose)
 
