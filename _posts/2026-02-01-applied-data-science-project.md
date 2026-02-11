@@ -114,7 +114,6 @@ This project is expected to:
 Support data-driven decision making
 
 ## Work Accomplished
-Document your work done to accomplish the outcome
 
 ### Step 1: Dataset Understanding & Selection
 
@@ -130,6 +129,62 @@ From review.shape, the dataset contains:
 This large dataset size provides sufficient coverage to analyse overall sentiment distribution and customer behaviour patterns.
 
 <img width="763" height="113" alt="image" src="https://github.com/user-attachments/assets/c3fdd096-276b-4eda-9fa4-761f7a93004b" />
+
+#### 2. Key Variables
+
+The dataset includes the following important variables:
+
+- Score – Rating from 1 to 5
+- Text – Full review text
+- Summary – Short review summary
+- ProductId – Product identifier
+- UserId – Reviewer identifier
+- HelpfulnessNumerator & HelpfulnessDenominator – Helpfulness votes
+- Time – Timestamp of review
+
+For sentiment analysis, the most relevant features are:
+- Score (used to derive sentiment label)
+- Text (main input for sentiment modelling)
+Columns such as Id, UserId, ProfileName, HelpfulnessNumerator, HelpfulnessDenominator, and Time do not directly contribute to identifying sentiment and were later removed during preprocessing.
+
+<img width="334" height="34" alt="image" src="https://github.com/user-attachments/assets/5573997f-cd8c-4ea0-87c4-a0cef20bdf59" />
+
+#### 3. Data Types and Structure
+
+Using review.info():
+
+- 5 numeric columns (int64)
+- 5 object columns (text-based)
+- Memory usage: ~43.4 MB
+The dataset structure is clean and well-defined, suitable for text analysis.
+
+<img width="242" height="154" alt="image" src="https://github.com/user-attachments/assets/7868e286-3a35-4cd9-9a7c-769b28ceb415" />
+
+#### 4. Missing Values
+
+From the missing value check:
+
+- Summary: 27 missing
+- ProfileName: 26 missing
+- All other columns: 0 missing
+Since the number of missing values is very small relative to 568k rows, they do not significantly affect analysis.
+
+<img width="141" height="199" alt="image" src="https://github.com/user-attachments/assets/0f103e85-4d4f-4e69-8223-68ceb5adc072" />
+
+####5. Duplicate Review Analysis
+
+Using duplicate check on:
+
+subset = ["ProductId", "UserId", "Text"]
+
+We identified:
+
+- 2,122 duplicated records
+- These duplicates represent repeated submissions of the same review and may bias sentiment distribution.
+- Duplicates were removed during data cleaning.
+  
+<img width="917" height="112" alt="image" src="https://github.com/user-attachments/assets/8bab9fc7-a53b-41dc-a69e-4c99918e60ac" />
+
 
 ### Modelling
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.
