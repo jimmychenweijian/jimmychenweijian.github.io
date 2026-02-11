@@ -177,7 +177,7 @@ To ensure high-quality data for modelling, the following preprocessing steps wer
 
 #### 1. Remove Duplicate Reviews
 
-##### Duplicates were removed using:
+Duplicates were removed using:
 
 review.drop_duplicates(subset=["ProductId", "UserId", "Text"])
 - Removed duplicates: 1,309
@@ -188,7 +188,7 @@ This ensures that repeated opinions do not bias the sentiment model.
 
 #### 2. Convert Rating Score to Sentiment Label
 
-##### We transformed Score into categorical sentiment:
+We transformed Score into categorical sentiment:
 - Score ≥ 4 → Positive
 - Score = 3 → Neutral
 - Score ≤ 2 → Negative
@@ -224,6 +224,74 @@ This ensures consistency and prevents the same word (e.g., "Good" vs "good") fro
 This reduces noise and ensures only relevant features are retained for modelling.
 
 <img width="395" height="94" alt="image" src="https://github.com/user-attachments/assets/96f0a34f-f966-4850-bdaa-9596a164a722" />
+
+### Step 3: Exploratory Data Analysis (EDA)
+
+#### 1. Rating Distribution (1–5)
+
+From value_counts:
+- Score 5: ~63.9%
+- Score 4: ~14.2%
+- Score 1: ~9.2%
+- Score 3: ~7.5%
+- Score 2: ~5.2%
+This shows a strong skew towards higher ratings.
+
+<img width="106" height="139" alt="image" src="https://github.com/user-attachments/assets/936d8208-f2e3-4288-89e3-f1b134dbd7e9" />
+
+#### 2. Sentiment Distribution
+
+After converting to sentiment:
+- Positive: ~78%
+- Negative: ~14%
+- Neutral: ~7%
+This indicates clear class imbalance, with positive reviews dominating the dataset.
+
+Implication:
+The model may become biased towards predicting positive sentiment due to majority class dominance.
+
+<img width="358" height="303" alt="image" src="https://github.com/user-attachments/assets/29712ca6-0197-4c50-8059-d7823b5fd205" />
+
+#### 3. Review Length Analysis
+
+We created a new feature:
+
+review_length = number of words in Text
+
+Summary statistics:
+- Mean: ~80 words
+- Median: 56 words
+- Max: 3432 words
+Most reviews fall within 0–500 words
+
+This shows that:
+- The dataset is dominated by short to medium-length reviews.
+- A small number of extremely long reviews exist (outliers).
+
+ <img width="126" height="171" alt="image" src="https://github.com/user-attachments/assets/22f3ebd5-920f-411a-b83b-8e18d3dd4147" />
+ <img width="601" height="455" alt="image" src="https://github.com/user-attachments/assets/f087b2e6-10ef-4d27-b2e4-f304b8cbb3c2" />
+
+
+#### 4. Review Length by Sentiment
+
+From boxplot:
+
+- Review lengths are broadly similar across Positive, Neutral, and Negative categories.
+- All categories contain long outliers.
+- This suggests that sentiment is not determined purely by review length.
+
+<img width="596" height="445" alt="image" src="https://github.com/user-attachments/assets/826f868c-a96e-4159-bea3-911b0c8b53a7" />
+
+#### 5. Top Reviewed Products
+
+The top 10 products have significantly higher review counts than others.
+
+This indicates:
+- Review distribution across products is uneven.
+- Popular products may influence overall sentiment distribution more heavily.
+
+<img width="571" height="538" alt="image" src="https://github.com/user-attachments/assets/74867662-7c5d-4b72-aeef-b471c3d64e2c" />
+
 
 ### Modelling
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.
