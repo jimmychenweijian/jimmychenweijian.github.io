@@ -61,9 +61,7 @@ To achieve the objective, the project is carried out in several structured steps
 #### Step 1: Dataset Understanding
 
 - Load and explore the Amazon review dataset
-
 - Understand key variables (Score, Text, ProductID, etc.)
-
 - Check dataset size and data quality
 
 #### Step 2: Data Preprocessing
