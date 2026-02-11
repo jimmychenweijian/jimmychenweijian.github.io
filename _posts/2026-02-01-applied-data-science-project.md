@@ -27,6 +27,14 @@ Amazon needs to better leverage its customer review data to answer important bus
 
 Without systematic analysis, the business may overlook important dissatisfaction signals or fail to identify improvement opportunities. This may affect customer experience and long-term revenue performance.
 
+## 3. Business Goal
+
+*The main goal of this project is:*
+
+To understand the overall customer satisfaction level on Amazon by analysing the distribution of review ratings and examining textual feedback.
+
+By doing so, the business can obtain a clearer picture of how customers perceive products sold on the platform.
+
 ## Work Accomplished
 Document your work done to accomplish the outcome
 
