@@ -16,7 +16,6 @@ Therefore, this project aims to use data analytics and text mining techniques to
 ### 2. Business Problem Statement
 
 Amazon needs to better leverage its customer review data to answer important business questions, such as:
-
 - What is the overall level of customer satisfaction?
 - Are most customers satisfied or dissatisfied?
 - What kind of feedback is commonly given in positive vs negative reviews?
@@ -40,7 +39,6 @@ For my individual component, I focus on:
 #### Objective 2 – To analyse the overall sentiment distribution of Amazon customer reviews.
 
 In this project, customer sentiment is derived directly from rating scores:
-
 - Ratings 4–5 → Positive
 - Rating 3 → Neutral
 - Ratings 1–2 → Negative
@@ -48,7 +46,6 @@ In this project, customer sentiment is derived directly from rating scores:
 This approach is practical because rating scores serve as a direct proxy for customer satisfaction.
 
 The analysis will:
-
 - Examine the distribution of ratings
 - Categorise reviews into sentiment classes
 - Identify whether the dataset is imbalanced
@@ -94,23 +91,19 @@ are implemented to evaluate whether textual features align with rating-based sen
 #### Step 6: Model Assessment
 
 Models are evaluated using:
-
 - Accuracy
 - Precision
 - Recall
 - F1-score
 - Confusion Matrix
-
 The performance of Logistic Regression and Naive Bayes is compared to determine which model performs better.
 
 ### 6. Expected Outcome
 
 This project is expected to:
-
 - Provide a clear view of overall customer satisfaction levels
 - Identify patterns in review sentiments
 - Demonstrate how text analytics can support business understanding
-
 Support data-driven decision making
 
 ## Work Accomplished
@@ -122,10 +115,8 @@ Support data-driven decision making
 The dataset used in this project consists of Amazon customer reviews collected from a public source. It contains textual review content together with rating information, which allows us to analyse customer sentiment.
 
 From review.shape, the dataset contains:
-
 - 568,454 rows
 - 10 columns
-
 This large dataset size provides sufficient coverage to analyse overall sentiment distribution and customer behaviour patterns.
 
 <img width="763" height="113" alt="image" src="https://github.com/user-attachments/assets/c3fdd096-276b-4eda-9fa4-761f7a93004b" />
@@ -133,7 +124,6 @@ This large dataset size provides sufficient coverage to analyse overall sentimen
 #### 2. Key Variables
 
 The dataset includes the following important variables:
-
 - Score – Rating from 1 to 5
 - Text – Full review text
 - Summary – Short review summary
@@ -152,7 +142,6 @@ Columns such as Id, UserId, ProfileName, HelpfulnessNumerator, HelpfulnessDenomi
 #### 3. Data Types and Structure
 
 Using review.info():
-
 - 5 numeric columns (int64)
 - 5 object columns (text-based)
 - Memory usage: ~43.4 MB
@@ -163,7 +152,6 @@ The dataset structure is clean and well-defined, suitable for text analysis.
 #### 4. Missing Values
 
 From the missing value check:
-
 - Summary: 27 missing
 - ProfileName: 26 missing
 - All other columns: 0 missing
@@ -174,11 +162,9 @@ Since the number of missing values is very small relative to 568k rows, they do 
 #### 5. Duplicate Review Analysis
 
 Using duplicate check on:
-
 subset = ["ProductId", "UserId", "Text"]
 
 We identified:
-
 - 2,122 duplicated records
 - These duplicates represent repeated submissions of the same review and may bias sentiment distribution.
 - Duplicates were removed during data cleaning.
@@ -191,10 +177,9 @@ To ensure high-quality data for modelling, the following preprocessing steps wer
 
 #### 1. Remove Duplicate Reviews
 
-Duplicates were removed using:
+##### Duplicates were removed using:
 
 review.drop_duplicates(subset=["ProductId", "UserId", "Text"])
-
 - Removed duplicates: 1,309
 - Final dataset size: 567,145 rows
 This ensures that repeated opinions do not bias the sentiment model.
@@ -203,8 +188,7 @@ This ensures that repeated opinions do not bias the sentiment model.
 
 #### 2. Convert Rating Score to Sentiment Label
 
-We transformed Score into categorical sentiment:
-
+##### We transformed Score into categorical sentiment:
 - Score ≥ 4 → Positive
 - Score = 3 → Neutral
 - Score ≤ 2 → Negative
@@ -222,8 +206,7 @@ This ensures consistency and prevents the same word (e.g., "Good" vs "good") fro
 
 #### 4. Remove Non-Sentiment Related Features
 
-Columns removed:
-
+##### Columns removed:
 - Id
 - UserId
 - ProfileName
@@ -231,7 +214,7 @@ Columns removed:
 - HelpfulnessDenominator
 - Time
 
-Remaining columns:
+##### Remaining columns:
 - ProductId
 - Score
 - Summary
