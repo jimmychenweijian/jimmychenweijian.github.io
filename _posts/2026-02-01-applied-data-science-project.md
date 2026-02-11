@@ -84,7 +84,7 @@ To achieve the objective, the project is carried out in several structured steps
 - Visualising using word cloud
 - Apply TF-IDF feature extraction
 
-#### Step 5: Model Development (Evaluation Purpose)
+#### Step 5: Model Development 
 
 Although sentiment is directly derived from rating scores, classification models such as:
 - Logistic Regression
@@ -374,9 +374,71 @@ Each cell in the matrix represents the TF-IDF weight of a word in a particular r
 
 <img width="810" height="129" alt="image" src="https://github.com/user-attachments/assets/1d4b28a7-55dc-45eb-8c45-f473faec4632" />
 
+### Step 5: Model Development
+
+##### 5.1 Select Modelling Technique
+
+In this project, two supervised machine learning models were selected for comparison:
+- Logistic Regression
+- Multinomial Naive Bayes
+
+These models were chosen because:
+- Both are widely used baseline models for text classification.
+- Logistic Regression performs well with high-dimensional sparse features such as TF-IDF.
+- Multinomial Naive Bayes is computationally efficient and commonly used for Bag-of-Words and Count-based features.
+The objective is to evaluate which model better captures sentiment patterns from textual features.
+
+#### 5.2 Generate Test Design
+
+To ensure fair and consistent evaluation:
+- Train/Test split: 80% training / 20% testing
+- random_state = 42 for reproducibility
+- stratify = y to preserve class distribution across splits
+
+This ensures that:
+- The dataset remains balanced between sentiment classes.
+- Model comparison is fair.
+- Results are reproducible.
+
+#### 5.3 Build Model
+
+##### Model 1: TF-IDF + Logistic Regression
+
+- Feature Engineering: TF-IDF sparse matrix
+- Classifier: Logistic Regression
+- class_weight="balanced" to handle class imbalance <img width="349" height="442" alt="image" src="https://github.com/user-attachments/assets/1df2c235-088b-48bb-8d7c-b6189396ca5f" />
 
 
+##### Model 2: TF-IDF + Multinomial Naive Bayes
 
+- Feature Engineering: TF-IDF sparse matrix
+- Same train/test split
+- Classifier: MultinomialNB
+
+##### Model 3: CountVectorizer + Multinomial Naive Bayes
+
+- Bag-of-Words using CountVectorizer
+- Stop words removed (stop_words="english")
+- Unigrams + Bigrams (ngram_range=(1,2))
+- min_df=5 to remove rare words
+- max_features=30000 to limit vocabulary size
+
+We selected three models to systematically compare the impact of different classifiers and feature engineering techniques on sentiment classification performance. Logistic Regression with TF-IDF was chosen as a strong baseline model due to its effectiveness with sparse high-dimensional text data. Naive Bayes was tested with both TF-IDF and CountVectorizer to evaluate whether the classifier performs better with weighted term frequency or raw word counts. This structured comparison allows us to identify which model provides the most balanced and reliable performance across all sentiment classes, rather than focusing only on overall accuracy.
+
+### Step 6: Model Assessment
+
+Models are assessed using the following metrics:
+- Accuracy – overall correct predictions
+- Precision – correctness of predicted class
+- Recall – ability to detect actual class
+- F1-score – balance between precision and recall
+- Confusion Matrix – to analyse misclassification patterns
+
+From the results:
+- Logistic Regression achieved more balanced recall across classes.
+- Naive Bayes showed bias toward the Positive class.
+- Neutral class performance was significantly weaker in Naive Bayes.
+Therefore, Logistic Regression demonstrates more stable performance.
 
 ### Modelling
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.
