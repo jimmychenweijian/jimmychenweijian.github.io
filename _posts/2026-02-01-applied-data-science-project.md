@@ -87,8 +87,10 @@ To achieve the objective, the project is carried out in several structured steps
 #### Step 5: Model Development 
 
 Although sentiment is directly derived from rating scores, classification models such as:
-- Logistic Regression
-- Naive Bayes
+- Logistic Regression + TF-IDF
+- Naive Bayes + TF-IDF
+- Naive Bayes + CountVectorizer
+- LSTM + Embedding
 are implemented to evaluate whether textual features align with rating-based sentiment.
 
 #### Step 6: Model Assessment
@@ -426,6 +428,16 @@ This ensures that:
 - min_df=5 to remove rare words
 - max_features=30000 to limit vocabulary size
 <img width="417" height="502" alt="image" src="https://github.com/user-attachments/assets/b9dc39bd-cc7e-461e-9b24-8f3a7440d4db" />
+
+##### Model 4: Embedding + LSTM
+
+- Text converted into sequences using Keras Tokenizer
+- Vocabulary size limited to max_words = 30000
+- All sequences padded to fixed length (max_len = 200)
+- Embedding layer (128 dimensions) to learn word representations
+- LSTM (128 units) to capture sequential word patterns
+- Dropout (0.3) used to reduce overfitting
+- Output layer uses Softmax activation for 3-class classification
 
 We selected three models to systematically compare the impact of different classifiers and feature engineering techniques on sentiment classification performance. Logistic Regression with TF-IDF was chosen as a strong baseline model due to its effectiveness with sparse high-dimensional text data. Naive Bayes was tested with both TF-IDF and CountVectorizer to evaluate whether the classifier performs better with weighted term frequency or raw word counts. This structured comparison allows us to identify which model provides the most balanced and reliable performance across all sentiment classes, rather than focusing only on overall accuracy.
 
