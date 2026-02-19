@@ -84,7 +84,7 @@ To achieve the objective, the project is carried out in several structured steps
 - Visualising using word cloud
 - Apply TF-IDF feature extraction
 
-#### Step 5: Model Development 
+[Step 5: Model Development](#step-5-model-development)
 
 Although sentiment is directly derived from rating scores, classification models such as:
 - Logistic Regression + TF-IDF
@@ -93,7 +93,7 @@ Although sentiment is directly derived from rating scores, classification models
 - LSTM + Embedding
 are implemented to evaluate whether textual features align with rating-based sentiment.
 
-#### Step 6: Model Assessment
+[Step 6: Model Assessment](#step-6-model-assessment)
 
 Models are evaluated using:
 - Accuracy
@@ -103,7 +103,7 @@ Models are evaluated using:
 - Confusion Matrix
 The performance of Logistic Regression, Naive Bayes and LSTM is compared to determine which model performs better.
 
-### 6. Expected Outcome
+[Step 7: Evaluation & Recommendation](#step-7-evaluation--recommendation)
 
 This project is expected to:
 - Provide a clear view of overall customer satisfaction levels
@@ -481,19 +481,41 @@ This likely happens because:
 - Neutral reviews often contain mixed or less strong sentiment words.
 - Many Neutral reviews may contain slight positive words, causing the model to classify them as Positive.
 
-#### 6.2 Recommendation and Analysis
+#### Step 7: Evaluation & Recommendation
 
-Although LSTM achieves the highest overall accuracy (90.2%), Neutral recall is still moderate (0.31). Logistic Regression provides the most balanced performance for all classes, especially Neutral (0.64).
+Based on our analysis, we recommend:
 
-If the business objective prioritizes:
-- Overall accuracy → choose LSTM
-- Balanced multi-class sentiment classification → choose Logistic Regression
+Logistic Regression (TF-IDF) as the final selected model
 
-For this project, if fairness and balanced class detection are important, TF-IDF + Logistic Regression is the most suitable model, because it does not overly favour the majority Positive class.
+Reason:
+- It provides the most balanced performance across all three sentiment classes.
+- It achieves the highest Neutral recall.
+- It is computationally efficient and easier to interpret.
+- It handles class imbalance better
 
-#### 6.3 Conclusion
+Although LSTM achieves higher overall accuracy, it still struggles with Neutral detection and requires significantly more computational resources. Therefore, for practical business deployment where balanced sentiment classification is important, Logistic Regression is the more suitable choice.
 
-In conclusion, comparing recall is important because our dataset is imbalanced toward Positive reviews. All models show difficulty in predicting Neutral sentiment, likely due to ambiguous wording and class imbalance. Although LSTM achieved the highest accuracy, Logistic Regression provides the most balanced and reliable performance across all classes. Therefore, Logistic Regression is selected as the final model for this project.
+#### 7.1 Conclusion
+
+In this project, we compared four models: TF-IDF + Logistic Regression, TF-IDF + Naive Bayes, CountVectorizer + Naive Bayes, and Embedding + LSTM. Although the LSTM model achieved the highest overall accuracy, we decided to select TF-IDF + Logistic Regression as our final model for the Amazon sentiment analysis task.
+
+The main reason is that Logistic Regression gives a more balanced performance across all three sentiment classes, especially for the Neutral class. Even though LSTM achieved higher accuracy, its Neutral recall was still relatively low. Since Amazon reviews include many mixed or moderate opinions, correctly identifying Neutral sentiment is important for fair analysis.
+
+Another reason is interpretability. Logistic Regression is easier to explain because we can look at the feature coefficients and understand which words influence Positive or Negative predictions. In contrast, LSTM is considered more of a “black box” model because its internal learning process is not easily interpretable. For business use, having a model that we can explain clearly is very important.
+
+Therefore, considering balance, interpretability, and practicality, Logistic Regression is chosen as the final model.
+
+#### 7.2 Future Challenges
+
+Although Logistic Regression performs well overall, there are still some limitations.
+
+First, it does not consider word order. Since TF-IDF treats text as a bag-of-words, it ignores sequence information. For example, the phrase “not good” and “good” may contain similar important words, but their meanings are different. Logistic Regression may not fully capture this contextual difference.
+
+Second, it may struggle with more complex language patterns such as sarcasm, irony, or subtle sentiment expressions. Deep learning models like LSTM can better model sequential relationships and context, so they may handle these cases more effectively.
+
+Third, class imbalance remains a challenge. The dataset is heavily biased toward Positive reviews. Even though we used class_weight="balanced", predicting Neutral sentiment is still difficult. This suggests that more balanced training data or advanced resampling techniques may be needed in the future.
+
+Lastly, if new vocabulary, slang, or trending phrases appear in Amazon reviews, the model may need retraining to adapt to new patterns. Logistic Regression relies heavily on the existing vocabulary learned during training.
 
 
 
