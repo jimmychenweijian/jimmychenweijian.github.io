@@ -99,7 +99,7 @@ Models are evaluated using:
 - Recall
 - F1-score
 - Confusion Matrix
-The performance of Logistic Regression and Naive Bayes is compared to determine which model performs better.
+The performance of Logistic Regression, Naive Bayes and LSTM is compared to determine which model performs better.
 
 ### 6. Expected Outcome
 
