@@ -86,30 +86,31 @@ To achieve the objective, the project is carried out in several structured steps
 
 [Step 5: Model Development](#step-5-model-development)
 
-Although sentiment is directly derived from rating scores, classification models such as:
-- Logistic Regression + TF-IDF
-- Naive Bayes + TF-IDF
-- Naive Bayes + CountVectorizer
-- LSTM + Embedding
-are implemented to evaluate whether textual features align with rating-based sentiment.
+- Select Modelling Technique
+- Generate Test Design
+- Although sentiment is directly derived from rating scores, classification models such as:
+   - Logistic Regression + TF-IDF
+   - Naive Bayes + TF-IDF
+   - Naive Bayes + CountVectorizer
+   - LSTM + Embedding
+
 
 [Step 6: Model Assessment](#step-6-model-assessment)
 
-Models are evaluated using:
-- Accuracy
-- Precision
-- Recall
-- F1-score
-- Confusion Matrix
-The performance of Logistic Regression, Naive Bayes and LSTM is compared to determine which model performs better.
+- Models are evaluated using:
+    - Accuracy
+    - Precision
+    - Recall
+    - F1-score
+    - Confusion Matrix
+- Model Development and Comparison Rationale
 
 [Step 7: Evaluation & Recommendation](#step-7-evaluation--recommendation)
 
-This project is expected to:
-- Provide a clear view of overall customer satisfaction levels
-- Identify patterns in review sentiments
-- Demonstrate how text analytics can support business understanding
-Support data-driven decision making
+- Evaluation & Recommendation
+- Conclusion
+- Future Challenges
+
 
 ## Work Accomplished
 
