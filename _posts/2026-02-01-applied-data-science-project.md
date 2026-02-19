@@ -455,6 +455,13 @@ Although accuracy gives an overall performance measure, it is not sufficient whe
 
 For this reason, we compare recall for each class, especially Neutral recall. Recall measures how many actual samples of a class are correctly identified. This is important because misclassifying Neutral reviews as Positive or Negative can distort the overall sentiment understanding.
 
+#### 6.1 Observation
+
+<img width="362" height="89" alt="image" src="https://github.com/user-attachments/assets/20230bf7-455a-42b9-be0e-dba0a4d22013" />
+
+All models struggle with Neutral Class
+
+
 
 
 ### Evaluation
