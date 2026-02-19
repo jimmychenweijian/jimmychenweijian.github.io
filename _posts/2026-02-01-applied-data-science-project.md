@@ -438,26 +438,24 @@ This ensures that:
 - LSTM (128 units) to capture sequential word patterns
 - Dropout (0.3) used to reduce overfitting
 - Output layer uses Softmax activation for 3-class classification
+<img width="619" height="447" alt="image" src="https://github.com/user-attachments/assets/938ed4e3-2c8c-4452-b9a0-8200d9e5ec65" />
 
-We selected three models to systematically compare the impact of different classifiers and feature engineering techniques on sentiment classification performance. Logistic Regression with TF-IDF was chosen as a strong baseline model due to its effectiveness with sparse high-dimensional text data. Naive Bayes was tested with both TF-IDF and CountVectorizer to evaluate whether the classifier performs better with weighted term frequency or raw word counts. This structured comparison allows us to identify which model provides the most balanced and reliable performance across all sentiment classes, rather than focusing only on overall accuracy.
+We selected four models to systematically compare the impact of different classifiers and feature engineering techniques on sentiment classification performance. Logistic Regression with TF-IDF was chosen as a strong baseline model because it performs well on sparse and high-dimensional text data. Naive Bayes was tested with both TF-IDF and CountVectorizer to evaluate whether the classifier performs better using weighted term importance or raw word frequency. In addition, an Embedding + LSTM model was implemented to capture sequential patterns and contextual relationships between words, which traditional bag-of-words models cannot fully represent. This structured comparison allows us to identify which model provides the most balanced and reliable performance across all sentiment classes, rather than focusing only on overall accuracy
 
 ### Step 6: Model Assessment
 
-Models are assessed using the following metrics:
-- Accuracy – overall correct predictions
-- Precision – correctness of predicted class
-- Recall – ability to detect actual class
-- F1-score – balance between precision and recall
-- Confusion Matrix – to analyse misclassification patterns
+To evaluate the performance of the models, we compared:
 
-From the results:
-- Logistic Regression achieved more balanced recall across classes.
-- Naive Bayes showed bias toward the Positive class.
-- Neutral class performance was significantly weaker in Naive Bayes.
-Therefore, Logistic Regression demonstrates more stable performance.
+- Accuracy
+- Neutral Recall
+- Positive Recall
+- Negative Recall
 
-### Modelling
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.
+Although accuracy gives an overall performance measure, it is not sufficient when the dataset is imbalanced. In our dataset, the Positive class has significantly more samples than Neutral and Negative. Therefore, a model can achieve high accuracy simply by predicting most reviews as Positive.
+
+For this reason, we compare recall for each class, especially Neutral recall. Recall measures how many actual samples of a class are correctly identified. This is important because misclassifying Neutral reviews as Positive or Negative can distort the overall sentiment understanding.
+
+
 
 ### Evaluation
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.
