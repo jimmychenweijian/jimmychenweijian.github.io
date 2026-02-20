@@ -560,7 +560,7 @@ Another ethical consideration is model transparency.
 - Logistic Regression is interpretable. We can examine feature coefficients to understand which words contribute to predictions.
 - LSTM is more of a “black box” model. It is difficult to interpret how the model makes decisions internally.
 
-Conclusion on AI Ethics
+##### Conclusion on AI Ethics
 
 - In conclusion, the main ethical challenges in this assignment are dataset bias, class imbalance, fairness across sentiment classes, and model transparency. The dominance of Positive reviews affects model learning and leads to lower Neutral detection. To address these issues, future improvements could include balancing the dataset, applying resampling techniques, and carefully monitoring model performance across all classes.
 
