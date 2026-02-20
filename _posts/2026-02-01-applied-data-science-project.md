@@ -519,12 +519,52 @@ Third, class imbalance remains a challenge. The dataset is heavily biased toward
 Lastly, if new vocabulary, slang, or trending phrases appear in Amazon reviews, the model may need retraining to adapt to new patterns. Logistic Regression relies heavily on the existing vocabulary learned during training.
 
 
+#### Step 8: AI Ethics Considerations
+1. Dataset Bias and Class Imbalance
 
+One major ethical issue is data imbalance. The Amazon dataset contains significantly more Positive reviews compared to Neutral and Negative reviews. This creates a bias in the model because it learns patterns mainly from the dominant Positive class.
 
-## AI Ethics
-Discuss the potential data science ethics issues (privacy, fairness, accuracy, accountability, transparency) in your project. 
+As a result:
+- Models tend to predict Positive more frequently.
+- Neutral reviews are often misclassified.
+- Accuracy may appear high, but performance is unfair across classes.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.
+If deployed in a real business environment, this bias could:
+- Overestimate customer satisfaction.
+- Underrepresent neutral or mildly dissatisfied customers.
+- Lead to misleading business insights.
+
+2. Fairness Across Sentiment Classes
+
+From our evaluation:
+- All models struggle with predicting Neutral reviews.
+- Naive Bayes (TF-IDF) almost completely failed to detect Neutral sentiment.
+This raises fairness concerns. If certain sentiment categories are consistently misclassified, the system does not treat all classes equally. A fair AI system should provide balanced performance across all groups or categories.
+
+3. Misclassification Risk
+
+Sentiment analysis models are not perfect. Misclassification may occur, especially for ambiguous or sarcastic reviews.
+
+For example:
+A sarcastic positive sentence may be misclassified.
+A neutral statement with slightly positive words may be predicted as Positive.
+
+If used for automated decision-making (e.g., filtering reviews or prioritising complaints), errors could:
+- Misrepresent customer opinions.
+- Ignore genuine dissatisfaction.
+- Impact business decisions unfairly.
+
+4. Model Transparency and Explainability
+
+Another ethical consideration is model transparency.
+- Logistic Regression is interpretable. We can examine feature coefficients to understand which words contribute to predictions.
+- LSTM is more of a “black box” model. It is difficult to interpret how the model makes decisions internally.
+
+Conclusion on AI Ethics
+
+- In conclusion, the main ethical challenges in this assignment are dataset bias, class imbalance, fairness across sentiment classes, and model transparency. The dominance of Positive reviews affects model learning and leads to lower Neutral detection. To address these issues, future improvements could include balancing the dataset, applying resampling techniques, and carefully monitoring model performance across all classes.
+
+- Selecting Logistic Regression also supports ethical AI principles because it provides more balanced performance and better explainability compared to black-box deep learning models
 
 ## Source Codes and Datasets
 Upload your model files and dataset into a GitHub repo and add the link here. 
