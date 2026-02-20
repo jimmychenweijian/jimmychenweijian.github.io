@@ -520,7 +520,7 @@ Lastly, if new vocabulary, slang, or trending phrases appear in Amazon reviews, 
 
 
 #### Step 8: AI Ethics Considerations
-1. Dataset Bias and Class Imbalance
+##### 1. Dataset Bias and Class Imbalance
 
 One major ethical issue is data imbalance. The Amazon dataset contains significantly more Positive reviews compared to Neutral and Negative reviews. This creates a bias in the model because it learns patterns mainly from the dominant Positive class.
 
@@ -534,14 +534,14 @@ If deployed in a real business environment, this bias could:
 - Underrepresent neutral or mildly dissatisfied customers.
 - Lead to misleading business insights.
 
-2. Fairness Across Sentiment Classes
+##### 2. Fairness Across Sentiment Classes
 
 From our evaluation:
 - All models struggle with predicting Neutral reviews.
 - Naive Bayes (TF-IDF) almost completely failed to detect Neutral sentiment.
 This raises fairness concerns. If certain sentiment categories are consistently misclassified, the system does not treat all classes equally. A fair AI system should provide balanced performance across all groups or categories.
 
-3. Misclassification Risk
+##### 3. Misclassification Risk
 
 Sentiment analysis models are not perfect. Misclassification may occur, especially for ambiguous or sarcastic reviews.
 
@@ -554,7 +554,7 @@ If used for automated decision-making (e.g., filtering reviews or prioritising c
 - Ignore genuine dissatisfaction.
 - Impact business decisions unfairly.
 
-4. Model Transparency and Explainability
+##### 4. Model Transparency and Explainability
 
 Another ethical consideration is model transparency.
 - Logistic Regression is interpretable. We can examine feature coefficients to understand which words contribute to predictions.
