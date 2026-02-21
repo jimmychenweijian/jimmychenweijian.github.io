@@ -504,7 +504,10 @@ The main reason is that Logistic Regression gives a more balanced performance ac
 
 Another reason is interpretability. Logistic Regression is easier to explain because we can look at the feature coefficients and understand which words influence Positive or Negative predictions. In contrast, LSTM is considered more of a “black box” model because its internal learning process is not easily interpretable. For business use, having a model that we can explain clearly is very important.
 
-Therefore, considering balance, interpretability, and practicality, Logistic Regression is chosen as the final model.
+It is also important to highlight that the Amazon dataset is highly imbalanced, with a strong dominance of Positive reviews. This imbalance affects model learning and contributes to lower Neutral detection performance across all models. Therefore, evaluation metrics beyond accuracy, such as recall for individual classes, are necessary to ensure fair comparison.
+
+Overall, considering balance, interpretability, computational efficiency, and practical deployment, Logistic Regression is selected as the most suitable final model.
+
 
 #### 7.2 Future Challenges
 
@@ -516,7 +519,9 @@ Second, it may struggle with more complex language patterns such as sarcasm, iro
 
 Third, class imbalance remains a challenge. The dataset is heavily biased toward Positive reviews. Even though we used class_weight="balanced", predicting Neutral sentiment is still difficult. This suggests that more balanced training data or advanced resampling techniques may be needed in the future.
 
-Lastly, if new vocabulary, slang, or trending phrases appear in Amazon reviews, the model may need retraining to adapt to new patterns. Logistic Regression relies heavily on the existing vocabulary learned during training.
+Fourth, real-world deployment would require continuous monitoring and retraining. If new vocabulary, slang, or trending phrases appear in Amazon reviews, the model performance may degrade over time. A mechanism for periodic retraining and performance evaluation would be necessary.
+
+Lastly, improving dataset quality could significantly enhance results. Collecting more balanced samples, refining Neutral labels, and reducing ambiguous annotations would allow the model to learn clearer decision boundaries.
 
 
 #### Step 8: AI Ethics Considerations
