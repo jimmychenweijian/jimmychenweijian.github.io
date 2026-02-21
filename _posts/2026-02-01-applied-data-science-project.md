@@ -381,15 +381,20 @@ Each cell in the matrix represents the TF-IDF weight of a word in a particular r
 
 ##### 5.1 Select Modelling Technique
 
-In this project, two supervised machine learning models were selected for comparison:
+In this project, four supervised machine learning models were selected for comparison:
+
 - Logistic Regression
 - Multinomial Naive Bayes
+- Multinomial Naive Bayes (with CountVectorizer)
+- Embedding + LSTM (Deep Learning model)
 
 These models were chosen because:
-- Both are widely used baseline models for text classification.
+- Logistic Regression and Naive Bayes are widely used baseline models for text classification.
 - Logistic Regression performs well with high-dimensional sparse features such as TF-IDF.
-- Multinomial Naive Bayes is computationally efficient and commonly used for Bag-of-Words and Count-based features.
-The objective is to evaluate which model better captures sentiment patterns from textual features.
+- Multinomial Naive Bayes is computationally efficient and commonly used for Bag-of-Words and count-based features.
+- The LSTM model is capable of capturing sequential word patterns and contextual relationships, which traditional bag-of-words models cannot represent.
+
+The objective is to evaluate which model better captures sentiment patterns from textual features, and to compare traditional machine learning approaches with a deep learning method. This allows us to analyse not only overall accuracy but also class-level performance, especially for the Neutral class
 
 #### 5.2 Generate Test Design
 
