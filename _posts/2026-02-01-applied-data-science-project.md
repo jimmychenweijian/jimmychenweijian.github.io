@@ -572,4 +572,5 @@ Another ethical consideration is model transparency.
 - Selecting Logistic Regression also supports ethical AI principles because it provides more balanced performance and better explainability compared to black-box deep learning models
 
 ## Source Codes and Datasets
-Upload your model files and dataset into a GitHub repo and add the link here. 
+ 
+[7275454R.ipynb](https://github.com/user-attachments/files/25454483/7275454R.ipynb)
