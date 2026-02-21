@@ -574,3 +574,5 @@ Another ethical consideration is model transparency.
 ## Source Codes and Datasets
  
 [7275454R.ipynb](https://github.com/user-attachments/files/25454483/7275454R.ipynb)
+
+Dataset: https://www.kaggle.com/datasets/arhamrumi/amazon-product-reviews
