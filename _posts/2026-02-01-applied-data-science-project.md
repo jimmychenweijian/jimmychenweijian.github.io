@@ -104,6 +104,7 @@ To achieve the objective, the project is carried out in several structured steps
     - F1-score
     - Confusion Matrix
 - Model Development and Comparison Rationale
+- Sample Review
 
 [Step 7: Evaluation & Recommendation](#step-7-evaluation--recommendation)
 
@@ -489,6 +490,15 @@ This likely happens because:
 - Dataset imbalance – The Positive class dominates the dataset.
 - Neutral reviews often contain mixed or less strong sentiment words.
 - Many Neutral reviews may contain slight positive words, causing the model to classify them as Positive.
+
+#### 6.2 Sample review
+
+<img width="418" height="187" alt="image" src="https://github.com/user-attachments/assets/b34e5242-605f-4035-b0cb-be843d23030b" />
+
+<img width="1207" height="420" alt="image" src="https://github.com/user-attachments/assets/80e39640-0520-43a1-9ba5-4da057fbec19" />
+
+The highlighted rows represent misclassified reviews. Out of the 10 sampled reviews, 2 were incorrectly predicted. In both cases, the model predicted "Neutral" instead of the actual sentiment. This suggests that the model tends to misclassify reviews with less emotionally strong wording into the neutral category. Overall, the visual inspection confirms the confusion matrix results where neutral sentiment is the most challenging class.
+
 
 #### Step 7: Evaluation & Recommendation
 
