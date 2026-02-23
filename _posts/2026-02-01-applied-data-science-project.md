@@ -515,23 +515,33 @@ Since Amazon reviews often contain moderate or mixed opinions, accurately detect
 
 #### Naive Bayes is Sensitive to Feature Representation
 The performance of Multinomial Naive Bayes varied depending on the feature engineering method used:
+
 •	TF-IDF + Naive Bayes showed very poor Neutral recall.
+
 •	CountVectorizer + Naive Bayes improved Neutral detection but still remained weaker than Logistic Regression.
+
 This suggests that Naive Bayes is more sensitive to how text features are represented. It performs better with raw count-based features than weighted TF-IDF features in this dataset.
 
 #### Dataset Imbalance Strongly Influences Model Behaviour
 All models showed significantly stronger performance for the Positive class compared to Neutral and Negative classes. This is mainly due to the heavy imbalance in the Amazon dataset, where Positive reviews dominate.
 
 Because of this imbalance:
+
 •	Models tend to predict Positive more confidently.
+
 •	Neutral sentiment is consistently harder to detect.
+
 •	Overall accuracy may be inflated by the dominant class.
+
 This highlights the importance of evaluating class-level metrics such as recall and F1-score instead of relying solely on accuracy.
 
 #### Traditional Models vs Deep Learning Trade-Off
 The comparison between traditional machine learning models and LSTM revealed an important trade-off:
+
 •	LSTM captures sequential context but is computationally expensive and less interpretable.
+
 •	Logistic Regression is computationally efficient, interpretable, and performs more consistently across classes.
+
 For business deployment, interpretability and stability may be more valuable than slight improvements in overall accuracy.
 
 #### Overall Insight
