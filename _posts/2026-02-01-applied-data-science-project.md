@@ -570,36 +570,36 @@ Overall, considering balance, interpretability, computational efficiency, and pr
 ##### Key Business Insights
 
 ###### Positive reviews dominate the dataset
-- Customer satisfaction is generally high, but may mask underlying issues.
-- 
+- Positive reviews dominate the Amazon dataset. This indicates that overall customer satisfaction is generally high. However, the dominance of Positive sentiment may mask underlying issues, particularly moderate or mixed opinions that fall under the Neutral category. Relying solely on overall accuracy may therefore lead to an overly optimistic interpretation of customer satisfaction levels.
+  
 ###### Neutral sentiment is frequently misclassified
-- Moderate or mixed opinions may be overlooked in performance evaluation.
-- 
+- Neutral sentiment is consistently more difficult to detect across all models. This suggests that moderate or mixed opinions are less clearly expressed in textual form and may contain subtle positive or negative words. As a result, these reviews are more likely to be misclassified. From a business perspective, overlooking Neutral feedback may result in missed opportunities for product refinement and service improvement.
+  
 ###### Negative reviews contain stronger sentiment signals
-- These reviews provide clearer indicators of product pain points.
+- Negative reviews contain stronger and more explicit sentiment indicators. These reviews often include clear dissatisfaction keywords, making them more distinguishable for classification models. This provides valuable signals for identifying product weaknesses, service gaps, and recurring customer pain points.
 
 ###### Model interpretability enables keyword-level analysis
-- We can identify specific words driving dissatisfaction or praise.
+- The use of an interpretable model such as Logistic Regression allows for keyword-level analysis. By examining feature coefficients, the business can identify specific words or phrases that contribute most strongly to Positive or Negative predictions. This enables deeper insight into what drives customer satisfaction or dissatisfaction.
 
 ###### Accuracy alone can be misleading due to class imbalance
-- Class-level metrics (recall, F1) are critical for fair insight generation.
+- Results demonstrate that overall accuracy alone is insufficient for performance evaluation, particularly in imbalanced datasets. Class-level metrics such as recall and F1-score provide a more meaningful assessment of how well each sentiment category is represented.
 
 #### Recommended Business Actions
 
 ###### Monitor Neutral reviews closely
-- Treat Neutral feedback as improvement opportunities before they turn Negative.
+- Results demonstrate that overall accuracy alone is insufficient for performance evaluation, particularly in imbalanced datasets. Class-level metrics such as recall and F1-score provide a more meaningful assessment of how well each sentiment category is represented.
 
 ###### Use keyword analysis for product improvement
-- Extract top Negative-driving terms to identify product or service issues.
+- Keyword-level analysis should be integrated into product improvement processes. By identifying the most influential Negative keywords, management can prioritise corrective actions related to product quality, delivery issues, or customer service experience.
 
 ###### Improve customer communication for mixed-feedback cases
-- Follow up on moderate reviews to enhance customer experience.
+- customer communication strategies should be enhanced for mixed-feedback cases. Follow-up engagement with customers who leave Neutral reviews can improve loyalty and demonstrate responsiveness.
 
 ###### Implement continuous sentiment monitoring
-- Track sentiment trend changes over time to detect early warning signals.
+- Sentiment monitoring should be implemented as a continuous process rather than a one-time analysis. Tracking sentiment trends over time can help detect emerging issues early and measure the impact of improvement initiatives.
 
 ###### Improve dataset balance for future model retraining
-- Collect more Neutral/Negative samples to enhance model fairness.
+- Effort should be made to reduce dataset imbalance. Collecting more Neutral and Negative samples or applying resampling techniques will enchance fairness and improve reliability of sentiment detection
 
 
 #### 7.3 Future Challenges
