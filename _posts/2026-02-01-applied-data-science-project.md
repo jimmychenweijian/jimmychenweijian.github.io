@@ -111,6 +111,9 @@ To achieve the objective, the project is carried out in several structured steps
 - Conclusion
 - Future Challenges
 
+[Step 8: AI Ethics Considerations](#step-8-ai-ethics-considerations)
+
+- AI Ethics Considerations
 
 ## Work Accomplished
 
