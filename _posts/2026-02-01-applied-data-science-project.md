@@ -110,6 +110,7 @@ To achieve the objective, the project is carried out in several structured steps
 [Step 7: Evaluation & Recommendation](#step-7-evaluation--recommendation)
 
 - Evaluation & Recommendation
+- Business Insight and Recommendation
 - Conclusion
 - Future Challenges
 
@@ -564,8 +565,44 @@ It is also important to highlight that the Amazon dataset is highly imbalanced, 
 
 Overall, considering balance, interpretability, computational efficiency, and practical deployment, Logistic Regression is selected as the most suitable final model.
 
+#### 7.2 Business Insight and Recommendation
 
-#### 7.2 Future Challenges
+##### Key Business Insights
+
+###### Positive reviews dominate the dataset
+- Customer satisfaction is generally high, but may mask underlying issues.
+- 
+###### Neutral sentiment is frequently misclassified
+- Moderate or mixed opinions may be overlooked in performance evaluation.
+- 
+###### Negative reviews contain stronger sentiment signals
+- These reviews provide clearer indicators of product pain points.
+
+###### Model interpretability enables keyword-level analysis
+- We can identify specific words driving dissatisfaction or praise.
+
+###### Accuracy alone can be misleading due to class imbalance
+- Class-level metrics (recall, F1) are critical for fair insight generation.
+
+#### Recommended Business Actions
+
+###### Monitor Neutral reviews closely
+- Treat Neutral feedback as improvement opportunities before they turn Negative.
+
+###### Use keyword analysis for product improvement
+- Extract top Negative-driving terms to identify product or service issues.
+
+###### Improve customer communication for mixed-feedback cases
+- Follow up on moderate reviews to enhance customer experience.
+
+###### Implement continuous sentiment monitoring
+- Track sentiment trend changes over time to detect early warning signals.
+
+###### Improve dataset balance for future model retraining
+- Collect more Neutral/Negative samples to enhance model fairness.
+
+
+#### 7.3 Future Challenges
 
 Although Logistic Regression performs well overall, there are still some limitations.
 
