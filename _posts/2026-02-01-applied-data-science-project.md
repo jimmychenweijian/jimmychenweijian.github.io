@@ -105,6 +105,7 @@ To achieve the objective, the project is carried out in several structured steps
     - Confusion Matrix
 - Model Development and Comparison Rationale
 - Sample Review
+- Key insights from Model Comparison
 
 [Step 7: Evaluation & Recommendation](#step-7-evaluation--recommendation)
 
@@ -498,6 +499,43 @@ This likely happens because:
 <img width="1207" height="420" alt="image" src="https://github.com/user-attachments/assets/80e39640-0520-43a1-9ba5-4da057fbec19" />
 
 The highlighted rows represent misclassified reviews. Out of the 10 sampled reviews, 2 were incorrectly predicted. In both cases, the model predicted "Neutral" instead of the actual sentiment. This suggests that the model tends to misclassify reviews with less emotionally strong wording into the neutral category. Overall, the visual inspection confirms the confusion matrix results where neutral sentiment is the most challenging class.
+
+### 6.3 Key Insight from Model Comparison
+
+Based on the comparative analysis of the four models, several important insights were observed.
+
+#### LSTM Achieved the Highest Overall Accuracy
+The Embedding + LSTM model achieved the highest overall accuracy (around 90%), outperforming all traditional machine learning models. This suggests that deep learning is effective in capturing contextual and sequential patterns in text data.
+However, despite its high accuracy, the LSTM model still struggled with Neutral recall. This indicates that higher accuracy does not necessarily mean better balanced performance across all sentiment classes.
+
+#### Logistic Regression Provides the Most Balanced Performance
+TF-IDF + Logistic Regression demonstrated the most balanced results across Negative, Neutral, and Positive classes. In particular, it achieved the highest Neutral recall among all models.
+Since Amazon reviews often contain moderate or mixed opinions, accurately detecting Neutral sentiment is important for realistic sentiment analysis. This makes Logistic Regression more suitable for practical application compared to models that favour majority classes.
+
+#### Naive Bayes is Sensitive to Feature Representation
+The performance of Multinomial Naive Bayes varied depending on the feature engineering method used:
+•	TF-IDF + Naive Bayes showed very poor Neutral recall.
+•	CountVectorizer + Naive Bayes improved Neutral detection but still remained weaker than Logistic Regression.
+This suggests that Naive Bayes is more sensitive to how text features are represented. It performs better with raw count-based features than weighted TF-IDF features in this dataset.
+
+#### Dataset Imbalance Strongly Influences Model Behaviour
+All models showed significantly stronger performance for the Positive class compared to Neutral and Negative classes. This is mainly due to the heavy imbalance in the Amazon dataset, where Positive reviews dominate.
+
+Because of this imbalance:
+•	Models tend to predict Positive more confidently.
+•	Neutral sentiment is consistently harder to detect.
+•	Overall accuracy may be inflated by the dominant class.
+This highlights the importance of evaluating class-level metrics such as recall and F1-score instead of relying solely on accuracy.
+
+#### Traditional Models vs Deep Learning Trade-Off
+The comparison between traditional machine learning models and LSTM revealed an important trade-off:
+•	LSTM captures sequential context but is computationally expensive and less interpretable.
+•	Logistic Regression is computationally efficient, interpretable, and performs more consistently across classes.
+For business deployment, interpretability and stability may be more valuable than slight improvements in overall accuracy.
+
+#### Overall Insight
+The results demonstrate that model selection should not be based solely on overall accuracy. Instead, balanced class-level performance, interpretability, computational efficiency, and dataset characteristics must be considered.
+Although LSTM achieved the highest accuracy, Logistic Regression provides a more practical and balanced solution for Amazon sentiment analysis.
 
 
 #### Step 7: Evaluation & Recommendation
