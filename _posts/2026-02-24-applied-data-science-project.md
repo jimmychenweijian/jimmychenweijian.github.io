@@ -110,8 +110,9 @@ To achieve the objective, the project is carried out in several structured steps
 [Step 7: Evaluation & Recommendation](#step-7-evaluation--recommendation)
 
 - Evaluation & Recommendation
-- Business Insight and Recommendation
+- Using Logistic Regression to Improve Amazon Business Performance
 - Conclusion
+- Business Insight and Recommendation
 - Future Challenges
 
 [Step 8: AI Ethics Considerations](#step-8-ai-ethics-considerations)
@@ -559,7 +560,82 @@ Reason:
 
 Although LSTM achieves higher overall accuracy, it still struggles with Neutral detection and requires significantly more computational resources. Therefore, for practical business deployment where balanced sentiment classification is important, Logistic Regression is the more suitable choice.
 
-#### 7.1 Conclusion
+#### 7.1 Using Logistic Regression to Improve Amazon Business Performance
+
+Since Logistic Regression (TF-IDF) is selected as the final model, it can be strategically deployed to enhance business decision-making in several ways.
+
+###### 1️. Real-Time Sentiment Monitoring
+
+The model can automatically classify new incoming reviews into Positive, Neutral, or Negative categories.
+
+Business impact:
+-	Monitor overall customer satisfaction trends.
+- Detect sudden increases in Negative sentiment.
+-	Identify products with declining satisfaction early.
+  
+This enables proactive intervention instead of reactive problem-solving.
+
+###### 2️. Early Detection of Customer Dissatisfaction
+
+Because Logistic Regression provides balanced Neutral detection, it allows Amazon to:
+-	Identify moderate dissatisfaction before it becomes severe.
+-	Track products receiving increasing Neutral reviews.
+-	Flag items that may require quality review.
+  
+Neutral reviews often represent customers who are “almost unhappy.” Addressing these cases early can prevent churn and negative brand perception.
+
+##### 3. Keyword-Level Insight for Product Improvement
+Logistic Regression is interpretable.
+
+By examining feature coefficients:
+-	Identify top Negative-driving words (e.g., “broken”, “late”, “refund”).
+-	Identify top Positive-driving words (e.g., “fast”, “quality”, “recommend”).
+
+Business can:
+-	Improve logistics if “delivery delay” frequently appears.
+-	Enhance product durability if “defective” appears often.
+-	Strengthen marketing around words driving satisfaction.
+  
+This turns text data into actionable operational insights.
+
+###### 4️. Customer Experience Optimisation
+Sentiment predictions can be integrated with:
+-	Customer service dashboards
+-	Vendor performance evaluation
+-	Product performance monitoring
+  
+For example:
+-	Automatically escalate highly Negative reviews.
+-	Prioritise follow-up for dissatisfied customers.
+-	Track seller-level sentiment scores.
+  
+This improves response time and customer retention.
+
+###### 5️. Strategic Decision Support
+Aggregated sentiment scores can support:
+-	Product ranking adjustments
+-	Inventory decisions
+-	Marketing strategy refinement
+- Promotion timing
+  
+For example:
+If sentiment drops before sales decline, management can intervene early.
+
+##### 6️. Cost-Efficient and Scalable Deployment
+
+Logistic Regression is:
+-	Computationally efficient
+-	Faster to retrain
+-	Easier to deploy at scale
+
+This makes it practical for:
+-	Millions of reviews
+-	Frequent retraining
+-	Real-time implementation
+-	
+It provides strong business value without high infrastructure cost.
+
+#### 7.2 Conclusion
 
 In this project, we compared four models: TF-IDF + Logistic Regression, TF-IDF + Naive Bayes, CountVectorizer + Naive Bayes, and Embedding + LSTM. Although the LSTM model achieved the highest overall accuracy, we decided to select TF-IDF + Logistic Regression as our final model for the Amazon sentiment analysis task.
 
@@ -571,7 +647,7 @@ It is also important to highlight that the Amazon dataset is highly imbalanced, 
 
 Overall, considering balance, interpretability, computational efficiency, and practical deployment, Logistic Regression is selected as the most suitable final model.
 
-#### 7.2 Business Insight and Recommendation
+#### 7.3 Business Insight and Recommendation
 
 ##### Key Business Insights
 
@@ -608,7 +684,7 @@ Overall, considering balance, interpretability, computational efficiency, and pr
 - Effort should be made to reduce dataset imbalance. Collecting more Neutral and Negative samples or applying resampling techniques will enchance fairness and improve reliability of sentiment detection
 
 
-#### 7.3 Future Challenges
+#### 7.4 Future Challenges
 
 Although Logistic Regression performs well overall, there are still some limitations.
 
