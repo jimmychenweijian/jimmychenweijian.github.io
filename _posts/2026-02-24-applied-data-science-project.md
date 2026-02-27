@@ -473,7 +473,8 @@ For this reason, we compare recall for each class, especially Neutral recall. Re
 
 #### 6.1 Model Development and Comparison Rationale
 
-<img width="362" height="89" alt="image" src="https://github.com/user-attachments/assets/20230bf7-455a-42b9-be0e-dba0a4d22013" />
+<img width="406" height="108" alt="image" src="https://github.com/user-attachments/assets/b8688e7d-adaf-4206-b196-2aa7f82fa215" />
+
 
 We first created TF-IDF + Logistic Regression as our base model. Logistic Regression is commonly used for text classification and works well with high-dimensional TF-IDF features. In our results, this model achieved an accuracy of around 0.788 and more importantly, it produced the highest Neutral recall (0.64) among all models. The performance across Negative, Neutral and Positive classes was more balanced compared to the other models. Therefore, we used this model as our benchmark for comparison.
 
