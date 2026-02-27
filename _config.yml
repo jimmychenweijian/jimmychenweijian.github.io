@@ -6,7 +6,8 @@ author:
 # The `>` after `description:` means to ignore line-breaks until next key.
 # If you want to omit the line-break after the end of text, use `>-` instead.
 description: >
-  This project analyzes Amazon customer reviews using multiple machine learning and deep learning models to identify the most reliable approach for sentiment classification. The evaluation emphasizes balanced performance across classes, interpretability, and practical business deployment considerations.
+  This project analyzes Amazon customer reviews using multiple machine learning and deep learning models to identify the most reliable approach for sentiment classification. 
+  The evaluation emphasizes balanced performance across classes, interpretability, and practical business deployment considerations.
 
 # Build settings
 
