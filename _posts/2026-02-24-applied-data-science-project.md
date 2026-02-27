@@ -456,6 +456,20 @@ This ensures that:
   
 <img width="619" height="447" alt="image" src="https://github.com/user-attachments/assets/938ed4e3-2c8c-4452-b9a0-8200d9e5ec65" />
 
+##### Model 5: TF-IDF + (SVD) + LSTM
+
+- Text converted into numerical features using TF-IDF Vectorizer
+- Stop words removed and unigrams + bigrams used (ngram_range = (1,2))
+- Vocabulary size limited (max_features = 15000) to control memory usage
+- TruncatedSVD (128 components) applied to reduce high-dimensional sparse features
+- TF-IDF sparse matrix converted into lower-dimensional dense representation
+- Reshaped into 3D format (samples, timesteps, features) for LSTM input
+- LSTM (32 units) used to learn patterns from reduced TF-IDF components
+- Dropout (0.3) used to reduce overfitting
+- Output layer uses Softmax activation for 3-class classification
+
+Due to the very high dimensionality of TF-IDF (especially with bigrams), dimensionality reduction using TruncatedSVD was applied before feeding the data into the LSTM model. This step was necessary to reduce computational complexity and memory usage during training.
+
 We selected four models to systematically compare the impact of different classifiers and feature engineering techniques on sentiment classification performance. Logistic Regression with TF-IDF was chosen as a strong baseline model because it performs well on sparse and high-dimensional text data. Naive Bayes was tested with both TF-IDF and CountVectorizer to evaluate whether the classifier performs better using weighted term importance or raw word frequency. In addition, an Embedding + LSTM model was implemented to capture sequential patterns and contextual relationships between words, which traditional bag-of-words models cannot fully represent. This structured comparison allows us to identify which model provides the most balanced and reliable performance across all sentiment classes, rather than focusing only on overall accuracy
 
 ### Step 6: Model Assessment
