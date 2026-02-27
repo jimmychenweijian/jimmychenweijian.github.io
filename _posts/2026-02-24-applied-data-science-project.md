@@ -663,7 +663,7 @@ This makes it practical for:
 -	Millions of reviews
 -	Frequent retraining
 -	Real-time implementation
--	
+  
 It provides strong business value without high infrastructure cost.
 
 #### 7.2 Conclusion
