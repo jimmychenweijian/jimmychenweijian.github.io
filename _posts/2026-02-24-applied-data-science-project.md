@@ -470,7 +470,16 @@ This ensures that:
 
 Due to the very high dimensionality of TF-IDF (especially with bigrams), dimensionality reduction using TruncatedSVD was applied before feeding the data into the LSTM model. This step was necessary to reduce computational complexity and memory usage during training.
 
-We selected four models to systematically compare the impact of different classifiers and feature engineering techniques on sentiment classification performance. Logistic Regression with TF-IDF was chosen as a strong baseline model because it performs well on sparse and high-dimensional text data. Naive Bayes was tested with both TF-IDF and CountVectorizer to evaluate whether the classifier performs better using weighted term importance or raw word frequency. In addition, an Embedding + LSTM model was implemented to capture sequential patterns and contextual relationships between words, which traditional bag-of-words models cannot fully represent. This structured comparison allows us to identify which model provides the most balanced and reliable performance across all sentiment classes, rather than focusing only on overall accuracy
+<img width="666" height="471" alt="image" src="https://github.com/user-attachments/assets/c383854b-5319-490a-80b7-80cde8e38b46" />
+
+
+We selected five models to systematically compare the impact of different classifiers and feature engineering techniques on sentiment classification performance. TF-IDF was used as the baseline feature representation, as it is widely adopted in text classification and performs well on sparse and high-dimensional data. Because TF-IDF serves as our baseline, several models were built using the same TF-IDF features to ensure fair comparison.
+
+First, TF-IDF + Logistic Regression was implemented as the primary baseline classifier due to its strong performance and stability on text data. Next, TF-IDF + Naive Bayes was developed to evaluate how a probabilistic classifier performs using the same TF-IDF features. To further examine the impact of feature representation, CountVectorizer + Naive Bayes was included to compare weighted term importance (TF-IDF) against raw word frequency.
+
+In addition, we implemented two deep learning approaches. Embedding + LSTM was used to capture sequential patterns and contextual relationships between words, which traditional bag-of-words models cannot fully represent. To maintain fairness in comparison, we also developed TF-IDF + (SVD) + LSTM, where dimensionality reduction was applied to TF-IDF features before feeding them into the LSTM model. This ensures that deep learning performance can be evaluated using the same baseline feature representation.
+
+This structured comparison allows us to identify which model provides the most balanced and reliable performance across all sentiment classes, rather than focusing only on overall accuracy.
 
 ### Step 6: Model Assessment
 
@@ -505,13 +514,16 @@ Finally, for a fair comparison, we also implemented TF-IDF + (SVD) + LSTM. Since
 We can see:
 
 - TF-IDF + Naive Bayes performs extremely poorly on Neutral (0.01).
-- Even LSTM only achieves 0.31 Neutral recall.
+- TF-IDF + (SVD) + LSTM records 0.00 Neutral recall, meaning the model failed to correctly identify any Neutral samples.
+- Even Embedding + LSTM only achieves around 0.31–0.43 Neutral recall.
 - Logistic Regression performs the best for Neutral (0.64).
 
 This likely happens because:
+
 - Dataset imbalance – The Positive class dominates the dataset.
 - Neutral reviews often contain mixed or less strong sentiment words.
-- Many Neutral reviews may contain slight positive words, causing the model to classify them as Positive.
+- Many Neutral reviews may contain slight positive wording, causing models to classify them as Positive.
+- In the TF-IDF + LSTM setup, dimensionality reduction (SVD) may have removed subtle Neutral-related features, making it harder for the model to differentiate Neutral from Positive.
 
 #### 6.2 Sample review
 
@@ -767,6 +779,7 @@ Another ethical consideration is model transparency.
 
 ## Source Codes and Datasets
  
-Source Code: [7275454R.ipynb](https://github.com/user-attachments/files/25454483/7275454R.ipynb)
+Source Code: [7275454R_Jimmy.ipynb](https://github.com/user-attachments/files/25594550/7275454R_Jimmy.ipynb)
+
 
 Dataset: https://www.kaggle.com/datasets/arhamrumi/amazon-product-reviews
